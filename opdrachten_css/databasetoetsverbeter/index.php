@@ -62,7 +62,7 @@
         <main>
         <?php
         // Default page is home.php
-        $page = "home.php";
+        $page = "home.html";
         
         // If a page is passed in the URL, use it
         if (!empty($_GET["pagina"])) {

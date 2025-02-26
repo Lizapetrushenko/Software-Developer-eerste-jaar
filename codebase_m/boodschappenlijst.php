@@ -15,7 +15,6 @@
 <form>
 <?php
 if (!isset($_GET['verzenden'])){
-    return;
     $_SESSION["aantal"] = $_GET["aantal"];
     $aantal_producten = $_SESSION["aantal"];
 
