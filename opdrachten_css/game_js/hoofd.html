@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Number Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="game-container">
+        <h1>Guess the Number</h1>
+        <p>I'm thinking of a number between 1 and 100.</p>
+        <label for="guess">Enter your guess:</label>
+        <input type="number" id="guess" min="1" max="100">
+        <button id="submit">Submit Guess</button>
+        <p id="message"></p>
+        <button id="restart" style="display: none;">Restart Game</button>
+    </div>
+
+    <script>
+       let secretNumber;
+let attempts = 0;
+
+const guessInput = document.getElementById('guess');
+const submitButton = document.getElementById('submit');
+const messageElement = document.getElementById('message');
+const restartButton = document.getElementById('restart');
+
+function startGame() {
+    // Generate a random secret number between 1 and 100
+    secretNumber = Math.floor(Math.random() * 100) + 1;
+    attempts = 0;
+    messageElement.textContent = "Guess a number between 1 and 100!";
+    guessInput.value = '';
+    guessInput.disabled = false;
+    submitButton.disabled = false;
+    restartButton.style.display = 'none';
+}
+
+function checkGuess() {
+    const guess = parseInt(guessInput.value);
+    attempts++;
+
+    if (isNaN(guess) || guess < 1 || guess > 100) {
+        messageElement.textContent = "Please enter a valid number between 1 and 100.";
+        return;
+    }
+
+    if (guess === secretNumber) {
+        messageElement.textContent = `Congratulations! You guessed the number in ${attempts} attempts.`;
+        guessInput.disabled = true;
+        submitButton.disabled = true;
+        restartButton.style.display = 'block';
+    } else if (guess < secretNumber) {
+        messageElement.textContent = "Too low! Try again.";
+    } else {
+        messageElement.textContent = "Too high! Try again.";
+    }
+}
+
+submitButton.addEventListener('click', checkGuess);
+restartButton.addEventListener('click', startGame);
+
+// Start the game when the page loads
+startGame();
+ 
+    </script>
+</body>
+</html>

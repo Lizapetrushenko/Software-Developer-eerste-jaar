@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="title">Dit is mijn eerste Javascript site</div>
+    <div id="greeting" onclick="actie()"> goedemorgen</div>
+    <div id="day"> het is donderdag</div>
+   
+    <script>
+        alert ( "test");
+ 
+        function actie()
+        {
+            let greetingEl = document.getElementById("greeting");
+           // alert(greetingEl.innerHTML);
+            let x = "Friday";
+            greetingEl.innerHTML = "Good Morning";
+            if ( greetingEl.style.backgroundColor == "orange")
+            {
+                greetingEl.style.backgroundColor = "aqua"
+            }
+            else{
+                greetingEl.style.backgroundColor = "orange"
+            }
+            greetingEl.style.color = "green";
+            greetingEl.style.fontFamily = "Tahoma";
+            document.getElementById("day").innerHTML = x;
+        }
+    </script>
+</body>
+</html>

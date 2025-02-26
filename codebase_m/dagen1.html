@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Date Difference Calculator</title>
+    <script>
+        function calculateDays() {
+            const dateNow = new Date(document.getElementById("dateNow").value);
+            const dateInput = new Date(document.getElementById("date").value);
+
+            if (isNaN(dateNow) || isNaN(dateInput)) {
+                document.getElementById("result").innerText = "Please enter valid dates.";
+                return;
+            }
+
+            const timeDifference = Math.abs(dateInput - dateNow);
+            const dayDifference = Math.ceil(timeDifference / (1000 * 60 * 60 * 24));
+
+            document.getElementById("result").innerText = `The difference is ${dayDifference} day(s).`;
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <label for="dateNow">Date now:</label>
+        <input type="date" id="dateNow" name="dateNow">
+    </form>
+    <form>
+        <label for="date">Date:</label>
+        <input type="date" id="date" name="date">
+    </form>
+    <button onclick="calculateDays()">Bereken verschil</button>
+    <h2 id="result"></h2>
+</body>
+</html>

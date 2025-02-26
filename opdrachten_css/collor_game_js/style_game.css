@@ -1,0 +1,89 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #9feef8;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+#container {
+    text-align: center;
+    background-color: rgb(201, 246, 252);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 400px;
+}
+
+#sampleColorDiv {
+    margin-bottom: 20px;
+}
+
+#sampleColor {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto;
+    border-radius: 5px;
+}
+
+
+#colorGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.colorBlock {
+    width: 80px;
+    height: 80px;
+    background-color: lightgray;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+/* Timer */
+#timer {
+    margin-bottom: 20px;
+}
+
+/* Score and result */
+#score {
+    margin-bottom: 20px;
+}
+
+#result {
+    margin-top: 10px;
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ff0000;
+}
+
+/* Start button */
+button {
+    padding: 10px 20px;
+    font-size: 1.2em;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+button:active {
+    background-color: #388e3c;
+}
+

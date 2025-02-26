@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tafels</title>
+    <style>
+     #output {
+        border:solid 1px black;
+     }  
+    </style>
+</head>
+<body>
+    <h1>Tafels</h1>
+    <div class="iets">
+    <label for="tafels">Geef getal voor tafel</label>
+    <input id="tafels" type="number" name="tafels" >
+    </div>
+    <button id="knop" onclick="liza(document.getElementById('tafels').value)">Geef de tafel </button>
+    
+    <div id="output">
+
+    </div>
+    <script>
+        function liza(tafel)
+        {
+            var uitkomst_string = "";
+            var uitkomst = 0;
+
+        for (let i = 1; i <= 10; i++)
+        {
+            uitkomst = i * tafel;
+
+            uitkomst_string += i + " x " + tafel + " = " + uitkomst + "<br>";
+        }
+
+        document.getElementById("output").innerHTML = uitkomst_string;
+
+
+        }
+    </script>
+</body>
+</html>

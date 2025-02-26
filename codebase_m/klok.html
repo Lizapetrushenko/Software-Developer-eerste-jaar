@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  
+<body onload="startTime()">
+    <h1>Klok</h1>
+
+        <div id="txt"></div>
+
+    
+        <script>
+            function startTime(){
+                const today = new Date();
+                let h = today.getHours();
+                let m = today.getMinutes();
+                let s = today.getSeconds();
+                let day = today.getDate();
+                let month = today.getMonth();
+                let year = today.getFullYear();
+
+                document.getElementById('txt').innerHTML = day + "/" + month + "/" + year + " " + h + ":" + m + ":" + s;
+                setTimeout(startTime, 1000);
+            }
+            function checkTime(i) {
+                if (i < 10) { i = "0" + i};
+                return i;
+            }
+            </script>
+</body>
+</html>

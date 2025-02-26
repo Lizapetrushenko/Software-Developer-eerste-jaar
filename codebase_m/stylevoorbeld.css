@@ -1,0 +1,70 @@
+#container{
+    display: flex;
+    flex-direction: column;
+    height:100vh;
+    margin:auto;
+    width:50%;
+  }
+  body{
+  
+      margin: 0;
+  background-image:url(papier.jpg) ;
+  }
+  #header{
+  color: white; opacity:0.5 ;
+  align-content: space-around;
+   font-size:30px;
+  text-align: center;
+  background-color: navy;
+          color: white;
+          padding: 0.5em;
+  }
+  #main{
+      opacity: 0.7;
+      display: flex;
+      background-color: white;
+      color: black;
+      flex: 1;
+  }
+  #footer{
+  background-color:navy;
+  opacity:0.5 ;
+          color: white;
+          padding: 0.5em;
+          text-align: end;
+  }
+  .sidebar{
+      opacity: 1;
+      flex: 1;
+      justify-content:space-between;
+      align-items: stretch;
+      background-color: lightblue;
+      padding: 10px;
+  }
+  .content{
+      opacity: 1;
+      flex: 4;
+      padding: 10px;
+  }
+  #nav{
+      display: flex;
+      width:100%;
+      text-align: left;
+  justify-content: space-evenly;
+  }
+  #nav div {
+         text-align: center;
+          padding: 5px;
+          background-color: rgb(31, 31, 227);
+          color: yellow;
+          border-radius: 6px;
+  }
+  
+  .rounded { 
+      opacity:0.5 ;
+    background-color: rgb(61, 61, 244);
+      border-right: 2px solid white;
+      color:white;
+      text-align:center;
+      margin:2px 0px 2px 2px; 
+  }

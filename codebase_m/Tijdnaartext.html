@@ -1,0 +1,54 @@
+ <!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klok</title>
+</head>
+<body onload="startTime()">
+<script>
+        function startTime() {
+            const today = new Date();
+            let h = checkTime(today.getHours());
+            let m = checkTime(today.getMinutes());
+            let s = checkTime(today.getSeconds());
+            let day = today.getDate();
+            let month = today.getMonth() + 1; // Maand begint bij 0
+            let year = today.getFullYear();
+
+            // Maak een tekstweergave van de tijd
+            const timeText = convertTimeToText(h, m, s);
+            document.getElementById('txt').innerHTML = `Vandaag is het ${day}/${month}/${year} en de tijd is ${timeText}.`;
+            setTimeout(startTime, 1000);
+        }
+
+        function checkTime(i) {
+            if (i < 10) { i = "0" + i; }
+            return i;
+        }
+
+        function convertTimeToText(h, m, s) {
+            let hoursText = convertNumberToText(h);
+            let minutesText = convertNumberToText(m);
+            let secondsText = convertNumberToText(s);
+            return `${hoursText} uur, ${minutesText} minuten en ${secondsText} seconden`;
+        }
+
+        function convertNumberToText(num) {
+            const numbersInText = [
+                "nul", "een", "twee", "drie", "vier", 
+                "vijf", "zes", "zeven", "acht", "negen", 
+                "tien", "elf", "twaalf", "dertien", "veertien", 
+                "vijftien", "zestien", "zeventien", "achttien", "negentien", 
+                "twintig", "eenentwintig", "tweeëntwintig", "drieëntwintig", "vierentwintig", 
+                "vijfentwintig", "zesentwintig", "zevenentwintig", "achtentwintig", "negenentwintig", 
+                "dertig", "eenendertig", "tweeëndertig", "drieëndertig", "vierendertig", 
+                "vijfenveertig", "zesenveertig", "zevenenveertig", "achtenveertig", "negenenveertig", 
+                "vijftig", "eenenvijftig", "tweeënvijftig", "drieënvijftig", "vierenvijftig", 
+                "vijfenzestig", "zesenzestig", "zevenenzestig", "achtenzestig", "negenenzestig"
+            ];
+            return numbersInText[num] || num;
+        }
+    </script>
+</body>
+</html>

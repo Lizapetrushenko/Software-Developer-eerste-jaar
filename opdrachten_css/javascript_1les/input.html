@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       body {
+            height: 100vh; 
+            display: flex;
+            justify-content: center; 
+            align-items: center; 
+            margin: 0; 
+            background-color: aqua;
+        }
+
+        div {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            border: 4px dotted pink;
+            background-color: palevioletred;
+        }
+
+        input[type=text], input[type=number] {
+            width: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <label>Name</label>
+        <input type="text" name="name" id="name" value="name"><br>
+        <label>Surname</label>
+        <input type="text" name="surname" id="surname" value="surname"><br>
+        <label>Age</label>
+        <input type="number" name="age" id="age"><br>
+        <label>About <input type="text" name="years" id="years"> years</label><br>
+        <button onclick="actie()" >klik </button><br>
+  
+    </div>
+
+
+    <script>
+        function actie() {
+            
+           
+
+            let nameEl = document.getElementById("name");
+            let surnameEl = document.getElementById("surname");
+            let yearsEl = document.getElementById("years");
+            let ageEl = document.getElementById("age");
+
+            let name = nameEl.value;
+            let surname = surnameEl.value;
+            let years = yearsEl.value;
+            let age = ageEl.value;
+
+            
+            document.getElementById("output").innerHTML=("Hi, I am " + name + " " + surname + " and about " + years + " years. I would be " + (parseInt(age) + parseInt(years)) + " years old.");
+        }
+    </script>
+    <div id="output"></div>
+</body>
+</html>

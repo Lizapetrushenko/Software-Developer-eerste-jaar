@@ -1,0 +1,26 @@
+td, th {
+    border: 1px solid #999;
+    padding: 0.5rem;
+  }
+  tbody{
+  background-color: rgb(237, 175, 233);
+}
+#content{
+    display:flex;
+    align-items: center;
+    flex-direction: column;
+    
+}
+body{
+    background-color:white;
+}
+form{
+    border: 1px solid rgb(247, 88, 247);
+    border-radius: 3%;
+    margin: 3%; 
+    padding: 3%;
+    background-color: rgb(170, 138, 251);
+}
+label{
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;  
+}

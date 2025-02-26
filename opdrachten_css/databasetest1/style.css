@@ -1,0 +1,15 @@
+#header{
+    display: flex;
+    justify-content: center;
+    background-color: blue;
+}
+.knop{
+    display: flex;
+    justify-content: space-around;
+
+}
+h1{
+    display: flex;
+    justify-content: center;
+    background-color: blue;
+}

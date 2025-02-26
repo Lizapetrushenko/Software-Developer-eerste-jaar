@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kleur Spel</title>
+    <link rel="stylesheet" href="style_game.css">
+</head>
+<body>
+    <div id="container">
+        <div id="game">
+            <h1>Kleur Spel</h1>
+            <div id="sampleColorDiv" class="colorDiv">
+                <div id="sampleColor"></div>
+            </div>
+            <div id="colorGrid">
+                <div id="div1" class="colorBlock"></div>
+                <div id="div2" class="colorBlock"></div>
+                <div id="div3" class="colorBlock"></div>
+                <div id="div4" class="colorBlock"></div>
+                <div id="div5" class="colorBlock"></div>
+                <div id="div6" class="colorBlock"></div>
+                <div id="div7" class="colorBlock"></div>
+                <div id="div8" class="colorBlock"></div>
+                <div id="div9" class="colorBlock"></div>
+            </div>
+            <div id="timer">
+                <h2>Tijd: <span id="timerValue">30</span> seconden</h2>
+            </div>
+            <div id="score">
+                <p>Gewonnen: <span id="wins">0</span></p>
+                <p>Verloren: <span id="losses">0</span></p>
+            </div>
+            <button id="startBtn" onclick="startGame()">Start</button>
+            <div id="result">
+                <p id="resultMessage"></p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+<script>
+    let colors = ['lime', 'blue', 'purple', 'gray', 'green', 'yellow', 'orange', 'brown', 'lightpink'];
+let correctColor;
+let timerInterval;
+let timeLeft = 2;
+let wins = 0;
+let losses = 0;
+
+function startGame() {
+    document.getElementById('resultMessage').textContent = '';
+    timeLeft = 2;
+    document.getElementById('timerValue').textContent = timeLeft;
+    clearInterval(timerInterval);
+    timerInterval = setInterval(updateTimer, 1000);
+    correctColor = colors[Math.floor(Math.random() * colors.length)];
+    document.getElementById('sampleColor').style.backgroundColor = correctColor;
+    let randomColors = [...colors];
+    randomColors = randomColors.sort(() => 0.5 - Math.random());
+    let colorBlocks = document.getElementsByClassName('colorBlock');
+    for (let i = 0; i < colorBlocks.length; i++) {
+        colorBlocks[i].style.backgroundColor = randomColors[i];
+        colorBlocks[i].onclick = () => checkColor(colorBlocks[i].style.backgroundColor);
+    }
+}
+function checkColor(selectedColor) {
+    if (selectedColor === correctColor) {
+        wins++;
+        document.getElementById('resultMessage').textContent = 'Je hebt gewonnen!';
+    } else {
+        losses++;
+        document.getElementById('resultMessage').textContent = 'Je hebt verloren!';
+    }
+    document.getElementById('wins').textContent = wins;
+    document.getElementById('losses').textContent = losses;
+
+    
+    clearInterval(timerInterval);
+    document.getElementById('timerValue').textContent = 0;
+}
+function updateTimer() {
+    if (timeLeft === 0) {
+        clearInterval(timerInterval);
+        document.getElementById('resultMessage').textContent = 'Tijd is op! Je hebt verloren!';
+        losses++;
+        document.getElementById('losses').textContent = losses;
+    } else {
+        timeLeft--;
+        document.getElementById('timerValue').textContent = timeLeft;
+    }
+}
+startGame();
+
+</script>

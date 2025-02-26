@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deling Programma</title>
+    <script>
+        function deel() {
+            const deeltal = parseFloat(document.getElementById("deeltal").value);
+            const deler = parseFloat(document.getElementById("deler").value);
+            let resultaat;
+            if (deler === 0) {
+                resultaat = "Kan niet delen door nul.";
+            } else {
+                resultaat = deeltal / deler;
+            }
+
+            document.getElementById("resultaat").innerText = "Resultaat: " + resultaat;
+        }
+    </script>
+</head>
+<body>
+    <h1>Deling Programma</h1>
+    <label for="deeltal">Voer het deeltal in:</label>
+    <input type="number" id="deeltal" required>
+    <br><br>
+    <label for="deler">Voer de deler in:</label>
+    <input type="number" id="deler" required>
+    <br><br>
+    <button onclick="deel()">Bereken</button>
+    <h2 id="resultaat"></h2>
+</body>
+</html>

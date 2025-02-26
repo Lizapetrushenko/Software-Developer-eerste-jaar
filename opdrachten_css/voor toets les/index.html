@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   
+</head>
+<body>
+    <div>
+        <hr>
+            <input type="text" id="input_naam" onkeyup="controleerInput()">
+            <button  onclick="groetDeWereld()">groet de wereld</button>
+        <hr>
+    </div>
+    <div id="output">
+        output_div
+    </div>
+ 
+    <script>
+        function naam()
+        {
+ 
+        }
+ 
+        function groetDeWereld()
+        {
+            let inputNaam = document.getElementById("input_naam").value;
+            document.getElementById("output").innerHTML = "hello " + inputNaam;
+        }
+ 
+        function controleerInput()
+        {
+            let inputNaam = document.getElementById("input_naam").value;
+            console.log("naam: " + inputNaam);
+ 
+            let lengte = inputNaam.length;
+ 
+            console.log("lengte: " + lengte);
+            if(lengte > 5)
+            {
+                document.getElementById("input_naam").style.backgroundColor = "lightgreen";
+                document.getElementById("input_naam").style.color = "green";
+            }
+            else
+            {
+                document.getElementById("input_naam").style.backgroundColor = "initial";
+            }
+        }
+    </script>
+</body>
+</html>
+
+
+
+

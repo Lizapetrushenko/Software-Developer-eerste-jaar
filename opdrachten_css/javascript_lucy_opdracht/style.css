@@ -1,0 +1,22 @@
+body{
+    background-color: lightgray;
+}
+
+
+#resultText{
+    border:solid 1px red;
+    background-color: white;
+}
+.onputDivStyle{
+border: solid 1px blue ;
+border-radius: 4px;
+width: 70px;
+background-color: white;
+}
+newStyle{
+border: solid 1px green ;
+border-radius: 6px;
+width: 150px;
+background-color: yellow;
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}

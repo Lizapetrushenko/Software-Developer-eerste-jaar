@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Combinaties van 0 tot 999</title>
+
+</head>
+<body>
+    <form>
+        <button type="button" onclick="toonCombinaties()">klik hier om nummers te krijgen</button>
+        <h2 id="result"></h2>
+    </form>
+    <script>
+        function toonCombinaties() {
+            let output = '';
+            for (let i = 0; i <= 999; i++) {
+                output += i + '\n'; 
+            }
+            document.getElementById("result").innerText = output; 
+        }
+    </script>
+</body>
+</html>

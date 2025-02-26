@@ -1,0 +1,66 @@
+body
+{
+  background-image: url(de_helden3.jpg);
+    margin: 0;
+}
+
+
+
+header
+{
+    background-color: blue;
+    color: white;
+    display: flex; 
+    justify-content: center; 
+
+}
+.navigatie ul li
+{
+    display: inline-block;
+
+
+}
+
+.navigatie ul li a
+{
+    background-color: lightblue;
+    text-decoration: none;
+    display: block;
+    border: 1px solid black;
+    padding: 10px 20px;
+}
+
+.navigatie ul 
+{
+    padding-left: 0px;
+    display: flex;
+    justify-content: space-around;
+}
+
+main
+{
+    flex: 1;
+}
+
+footer{
+    background-color: blue;
+    color:white;
+    display: flex;
+    justify-content: center;
+}
+#container{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+table,tr,td{
+    background-color: antiquewhite;
+    border: 3px solid black;
+    border-radius: 1%;
+
+    
+}
+.foto{
+    height: 10vh;
+}

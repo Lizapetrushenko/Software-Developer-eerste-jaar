@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <form>
+      <fieldset>
+        <table>
+        <legend>Name</legend>    
+            <tr>
+                <td>
+                    <label for="voornaam">First Name</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="voornaam" id="voornaam" placeholder="Enter your first name">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label for="achternaam">Last Name</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="text" name="achternaam" id="achternaam" placeholder="Enter your last name">
+                </td>
+            </tr>
+        </table>
+      </fieldset>
+ 
+   
+    <fieldset>
+        <legend>Other Questions</legend>    
+        <table>
+            <tr>
+                <td>
+                    <label>Choose a drink:</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" id="coffee" name="drink" value="coffee">
+                    <label for="coffee">Coffee</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" id="tea" name="drink" value="tea" checked>
+                    <label for="tea">Tea</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="radio" id="hot_choco" name="drink" value="hot_choco">
+                    <label for="hot_choco">Hot chocolate</label>
+                </td>
+            </tr>
+        </table>
+ 
+        <table>
+            <tr>
+                <td>
+                    <lable>What ice cream do you like?</lable>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="chocolate" name="ice_cream" value="chocolate">
+                    <label for="chocolate">Chocolate</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="chocolate_pudding" name="ice_cream" value="chocolate_pudding">
+                    <label for="chocolate_pudding">Chocolate Pudding</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="chocolate_peanut_butter" name="ice_cream" value="chocolate_peanut_butter">
+                    <label for="chocolate_peanut_butter">Chocolate Peanut Butter</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="vanilla" name="ice_cream" value="vanilla">
+                    <label for="vanilla">Vanilla</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <input type="checkbox" id="strawberry" name="ice_cream" value="strawberry">
+                    <label for="strawberry">Strawberry</label>
+                </td>
+            </tr>
+        </table>
+ 
+        <table>
+            <tr>
+                <td>
+                    <label for="schools">Select a school:</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <select name="schools" id="schools">
+                        <optgroup label="ACC">
+                            <option>Boston College</option>
+                            <option>Clemson</option>
+                            <option>Duke</option>
+                            <option selected>Florida State</option>
+                            <option>Georgia Tech</option>
+                            <option>Louiville</option>
+                        </optgroup>
+                    </select>
+                </td>
+            </tr>
+        </table>
+ 
+        <table>
+            <tr>
+                <td>
+                    <label for="comment">Please provide comments:</label>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <textarea rows="5" cols="50" id="comment" name="comment" placeholder="I would like to comment..."></textarea>
+                </td>
+            </tr>
+        </table>
+    </fieldset>
+                    <input type="submit" name="submit" value="Submit">
+    </form>
+</body>
+</html>

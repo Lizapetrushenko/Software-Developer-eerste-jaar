@@ -1,0 +1,55 @@
+h1{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: white; opacity:0.5 ;
+    display: flex;
+    align-content: space-around;
+     font-size:30px;
+    text-align: center;
+    background-color: rgb(31, 31, 227);
+            color: white;
+            padding: 0.5em;
+}
+ul {
+
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  
+  }
+  body{
+    background-image:url(ict.jpg) ;
+    background-size: cover;
+
+  }
+  .knop{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+    display: flex;
+    flex-direction: row;
+  }
+  #me{
+    justify-content: flex-end;
+    list-style-type: none;
+  }
+  li {
+    border-right: 1px solid #bbb;
+    justify-content: space-evenly;
+  }
+  
+  li a {
+    display: block;
+    color: white;
+    padding: 14px 16px;
+
+  }
+  
+  
+  h2{
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+  }
+ 
