@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="demo"></div>
+    <hr>
+    <div id="container2"></div>
+    <hr>
+    <script>
+    const cars = ["Saab", "Volvo", "BMW", "Audi"];
+    const prijs = ["17000", "22000", "21000", "26500"];
+    document.getElementById("demo").innerHTML ="De " + cars[0] + " kost &euro;" + prijs[0];
+    let opdracht2 = document.getElementById("container2")
+    let text = ""
+    for (let index = 0; index < 4; index++) {
+        
+       text += "De " + cars[index] + " kost &euro;" + prijs[index] +"<br>"; 
+
+    }
+    opdracht2.innerHTML = text;
+</script>
+    
+</body>
+</html>
