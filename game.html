@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Гра: Клікни на квадрат</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin-top: 50px;
+        }
+        #game-area {
+            width: 600px;
+            height: 400px;
+            background-color: lightgray;
+            position: relative;
+            margin: 0 auto;
+            border: 2px solid #000;
+        }
+        .square {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background-color: red;
+            cursor: pointer;
+        }
+        #score {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Game</h1>
+    <div id="game-area"></div>
+    <p id="score">Score: 0</p>
+
+    <script>
+        let score = 0;
+        let gameArea = document.getElementById("game-area");
+        let scoreDisplay = document.getElementById("score");
+
+        
+        function getRandomPosition() {
+            let x = Math.floor(Math.random() * (gameArea.offsetWidth - 50));
+            let y = Math.floor(Math.random() * (gameArea.offsetHeight - 50));
+            return { x, y };
+        }
+
+        
+        function createSquare() {
+            let square = document.createElement("div");
+            square.classList.add("square");
+
+            
+            let position = getRandomPosition();
+            square.style.left = position.x + "px";
+            square.style.top = position.y + "px";
+
+            
+            gameArea.appendChild(square);
+
+            
+            square.onclick = function() {
+                score++;  
+                scoreDisplay.innerText = "Score: " + score;
+                square.remove();  
+                createSquare();  
+            };
+        }
+
+        
+        createSquare();  
+
+    </script>
+
+</body>
+</html>

@@ -4,25 +4,368 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        #updateCar
+{
+    display: none;
+}
+ 
+#deleteCar
+{
+    display: none;
+}
+ 
+td
+{
+    min-width: 50px;
+}
+ 
+#message
+{
+    color: blue;
+}
+ 
+#warning-update, #warning-delete
+{
+    color: red;
+    display: none;
+}
+ 
+ 
+    </style>
 </head>
 <body>
-    <div id="demo"></div>
-    <hr>
-    <div id="container2"></div>
-    <hr>
-    <script>
-    const cars = ["Saab", "Volvo", "BMW", "Audi"];
-    const prijs = ["17000", "22000", "21000", "26500"];
-    document.getElementById("demo").innerHTML ="De " + cars[0] + " kost &euro;" + prijs[0];
-    let opdracht2 = document.getElementById("container2")
-    let text = ""
-    for (let index = 0; index < 4; index++) {
-        
-       text += "De " + cars[index] + " kost &euro;" + prijs[index] +"<br>"; 
-
+ 
+<div id="autos">
+</div>
+<label for="toevoegen">Toevoegen</label>
+<input id="toevoegen" type="radio" name="action" name="add" checked onchange="toggleDiv(this)">
+<label for="updaten">Updaten</label>
+<input id="updaten" type="radio" name="action" name="update" onchange="toggleDiv(this)">
+<label for="verwijderen">Verwijderen</label>
+<input id="verwijderen" type="radio" name="action" name="delete" onchange="toggleDiv(this)">
+<br>
+<br>
+<div id="alter-array">
+<div id="addCar">
+<table>
+    <tr>
+        <td>
+            <label for="auto">Auto:</label>
+        </td>
+        <td>
+            <input name="toevoegen1" class="auto" type="text">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="prijs">Prijs:</label>
+        </td>
+        <td>
+            <input name="toevoegen2" class="prijs" type="number">
+        </td>
+    </tr>
+    <tr>
+        <td>
+        </td>
+        <td>
+            <button onclick="addCar()">toevoegen</button>
+        </td>
+    </tr>
+</table>
+</div>
+<div id="updateCar">
+<table>
+    <tr>
+        <td>
+            <label for="id">id:</label>
+        </td>
+        <td>
+            <input name="updaten1" class="id" type="number" disabled>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="auto">Auto:</label>
+        </td>
+        <td>
+            <input name="updaten2" class="auto" type="text">
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <label for="prijs">Prijs:</label>
+        </td>
+        <td>
+            <input name="updaten3" class="prijs" type="number">
+        </td>
+    </tr>
+    <tr>
+        <td>
+        </td>
+        <td>
+            <button id="saveButton" onclick="updateCar()">opslaan</button>
+        </td>
+    </tr>
+</table>
+<p id="message">Selecteer een auto die je wilt aanpassen!</p>
+<p id="warning-update">Selecteer eerst een auto en maak de auto en prijs velden niet leeg!</p>
+</div>
+<div id="deleteCar">
+<table>
+    <tr>
+        <td>
+            <label for="id">id:</label>
+        </td>
+        <td>
+            <input name="verwijderen" class="id" type="number">
+        </td>
+    </tr>
+    <tr>
+        <td>
+        </td>
+        <td>
+            <button onclick="removeCar()">verwijderen</button>
+        </td>
+    </tr>
+</table>
+<p id="warning-delete">Er bestaat geen auto met deze id! Voer een geldige id in!</p>
+</div>
+</div>
+<div id="totaalprijs">
+ 
+</div>
+<script>
+    const cars = ["Saab", "Volvo", "BMW"];
+const price = [10000, 8000, 11000];
+ 
+let autosDiv = document.getElementById("autos");
+let totaalPrijsDiv = document.getElementById("totaalprijs");
+let saveButton = document.getElementById("saveButton")
+let lengte_arrays = cars.length;
+let toevoegenRadio = document.getElementById("toevoegen");
+let updatenRadio = document.getElementById("updaten");
+let verwijderenRadio = document.getElementById("verwijderen");
+let addCarDiv = document.getElementById("addCar");
+let updateCarDiv = document.getElementById("updateCar");
+let deleteCarDiv = document.getElementById("deleteCar");
+let idInput;
+let autoInput = addCarDiv.querySelector('.auto');
+let prijsInput = addCarDiv.querySelector('.prijs');
+let WarningTextUpdate = document.getElementById("warning-update");
+let WarningTextDelete = document.getElementById("warning-delete");
+ 
+console.log(idInput);
+console.log(autoInput);
+console.log(prijsInput);
+ 
+ 
+showCars();
+totaalPrijs();
+console.log("auto: " + cars + " prijs: " + price);
+ 
+function toggleDiv(element)
+{
+    console.log(element);
+    let currentDiv;
+ 
+    if(toevoegenRadio.checked)
+    {
+        addCarDiv.style.display = "initial";
+        currentDiv = addCarDiv;
+        updateCarDiv.style.display = "none";
+        deleteCarDiv.style.display = "none";
     }
-    opdracht2.innerHTML = text;
-</script>
-    
+    else if(updatenRadio.checked)
+    {
+        addCarDiv.style.display = "none";
+        updateCarDiv.style.display = "initial";
+        currentDiv = updateCarDiv;
+        deleteCarDiv.style.display = "none";
+    }
+    else
+    {
+        addCarDiv.style.display = "none";
+        updateCarDiv.style.display = "none";
+        deleteCarDiv.style.display = "initial";
+        currentDiv = deleteCarDiv;
+    }
+ 
+    determineCurrentInput(currentDiv);
+}
+ 
+function showCars()
+{
+    let tekst = "";
+    lengte_arrays = cars.length;
+ 
+    tekst += "De " + cars[0] + " kost &euro;" +  price[0]  + "<hr>";
+ 
+    tekst += "<table>";
+    for(let i = 0; i < lengte_arrays; i++)
+    {
+       
+        tekst += "<tr><td>id: "+ i + " - De " + cars[i] + " kost &euro;" +  price[i] + `</td><td><button type='button' onclick= 'selectCar(${i}, "${cars[i]}", ${price[i]})'>selecteren</button></td></tr>`;
+       
+    }
+   
+ 
+    tekst += "</table>";
+    tekst += "<hr>";
+    autosDiv.innerHTML = tekst;
+}
+ 
+function determineCurrentInput(currentDiv)
+{
+ 
+    // resetting variables input elements
+    idInput = null;
+    autoInput = null;
+    prijsInput = null;
+ 
+    if(currentDiv.querySelector('.id'))
+    {
+        idInput = currentDiv.querySelector('.id');
+    }
+   
+    if(currentDiv.querySelector('.auto'))
+    {
+        autoInput = currentDiv.querySelector(".auto");
+    }
+   
+    if(currentDiv.querySelector('.prijs'))
+    {
+        prijsInput = currentDiv.querySelector(".prijs");
+    }
+ 
+    console.log(idInput);
+    console.log(autoInput);
+    console.log(prijsInput);
+   
+}
+ 
+ 
+ 
+function addCar()
+{
+    //console.log("auto: " + cars + " prijs: " + price);
+    let prijsInt = parseInt(prijsInput.value);
+ 
+    if(autoInput.value != "" && prijsInput.value != "")
+    {
+        cars.push(autoInput.value);
+        price.push(prijsInt);
+    }
+   
+ 
+    //console.log(auto.value);
+    //console.log(prijsInt);
+    //console.log("auto: " + cars + " prijs: " + price);
+ 
+    showCars();
+    totaalPrijs();
+ 
+}
+ 
+function updateCar()
+{
+    WarningTextUpdate.style.display = "none";
+    let prijsInt = parseInt(prijsInput.value);
+ 
+    console.log("dit is de id bij de update: " + idInput.value);
+ 
+    if(autoInput.value != "" && prijsInput.value != "" && idInput.value != "" )
+    {
+        cars[idInput.value] = autoInput.value;
+        price[idInput.value] = prijsInt;  
+       
+        showCars();
+        totaalPrijs();
+    }
+    else
+    {
+        WarningTextUpdate.style.display = "initial";
+    }
+}
+ 
+function removeCar()
+{
+    WarningTextDelete.style.display = "none";
+ 
+    // when the user entered an id
+    if(idInput.value != "")
+    {
+        console.log(cars[idInput.value]);
+        // when id exists as index in the array
+        if(idInput.value in cars)
+        {
+       
+               
+            cars.splice(idInput.value, 1);
+            price.splice(idInput.value, 1);
+       
+           
+            showCars();
+            totaalPrijs();
+        }
+        else
+        {
+            WarningTextDelete.style.display = "initial";
+        }
+    }
+       
+}
+ 
+ 
+function selectCar(index, auto, prijs)
+{
+    console.log("index: " + index);
+    console.log("auto: " + auto);
+    console.log("prijs: " + prijs);
+ 
+ 
+    if(idInput != null)
+    {
+        idInput.value = index;
+        console.log(idInput.value);
+    }
+ 
+    if(autoInput != null)
+    {
+        autoInput.value = auto;
+        console.log(autoInput.value);
+    }
+ 
+    if(prijsInput != null)
+    {
+        prijsInput.value = prijs;
+        console.log(prijsInput.value);
+    }
+   
+}
+ 
+ 
+function totaalPrijs()
+{
+    let totaal = 0;
+    let aantalAutos = cars.length;
+ 
+    for(let prijs of price)
+    {
+        totaal += prijs;
+        //console.log("prijs per loop: " + prijs);
+        //console.log("totaal per loop: " + totaal);
+    }
+ 
+   
+   
+ 
+    tekst = "<hr>De totaalprijs van de " + aantalAutos + " auto's is: &euro;" + totaal + "<hr>";
+    totaalPrijsDiv.innerHTML = tekst;
+ 
+ 
+}
+ 
+</script>    
 </body>
 </html>
